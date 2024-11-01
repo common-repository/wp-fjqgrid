@@ -1,0 +1,157 @@
+=== WPF-jqGrid ===
+Tags: jquery, jqGrid, grid, table, CRUD, searchable, sortable, editable
+Contributors: faina09
+Donate link: http://goo.gl/QzIZZ
+Requires at least: 5.2.4
+Tested up to: 5.8.2
+Stable tag: trunk
+License: GPLv2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+
+Use jqGrid (a jQuery plugin) to manage database tables. Use shortcode like [wpf-jqgrid table='wpf_jqgrid_sample' idtable=1 caption='name to display' editable=true]
+
+== Description ==
+Use the jqGrid plugin of jquery to manage MySql db tables.
+
+Works with PHP 5.4.0 or higher: please report any issue you find, and any feature you want. I'll try to fix the firsts and to implement the seconds!
+
+Try it out on your [free dummy site](http://tastewp.com/new?pre-installed-plugin-slug=wp-fjqgrid&redirect=options-general.php%3Fpage%3Dwpf-jqgrid&ni=true).
+The link spins up a new TasteWP instance with the WPF-jqGrid plugin already installed.
+
+This is a very first release with many limitations; jqGrid offers a lot of features but only few are actually supported by this plugin.
+
+I planned to develop many other features, but this depends by the interest of the users, and eventually from the support. If you want to contribute with a translation or writing code ask me, if you want to make a donation here's the link.
+
+thanks to:
+
+* Tobias for German de_DE translation
+ 
+* Andrijana Nikolic <andrijanan@webhostinggeeks.com> by WebHostingGeeks Support (http://webhostinggeeks.com/) for  Serbo-Croatian sr_RS translation
+
+If any bug found please ask me for support!
+
+Info and samples at <a href="http://faina09.it/category/wp-plugins/wp-fjqgrid/">WPF-jqGrid developer's site</a>
+
+WARNING: do to a plugin rename, the current plugin directory is wp-content\plugins\<strong>wp-fjqgrid</strong> while the plugin name and the shortcode has the '-' in a different position: <strong>wpf-jqgrid</strong>.
+
+== Installation ==
+1. Unzip and place the 'wpf-jqgrid' folder in your 'wp-content/plugins' directory.
+2. Activate the plugin.
+3. Click the 'WPF-jqGrid' link in the WordPress 'settings' menu
+4. Check the 'Enable' and enter one or more 'allowed tables names' (the precompiled fields are intended for a fast start: just click "save")
+5. Save (step REQUIRED).
+6. Use a shortcode like [wpf-jqgrid table='wpf_jqgrid_sample' idtable=1 caption='name to display' editable=true] in any page or post to display a CRUD for the table!
+
+== Frequently Asked Questions ==
+= Is it free? =
+Yes! The plugin is free. And jqGrid is free too, refers to: http://www.trirand.com/blog/?page_id=932
+
+= The plugin is not working! What can I do? =
+Please send me the <strong>description of the error</strong>, and all the info you can about your configuration details.
+To let me identify your issue, please answer the following Questions:
+* What is your environment (WP, PHP and MySQL versions, machine type)?
+* Can you activate the plugin?
+* Can you access the configuration page of the plugin?
+* Have you generated the sample table with an admin user logged in?
+* Have you tested the shortcode in any page/post and what is the result?
+* Have you enabled the log and have had a look at the log.txt file in the plugin directory?
+Useful may be also the MySQL script to create your table and the malfunctioning page html code.
+You can use WP plugin support page. I'll be happy to help you!
+
+= What I should be aware of? =
+* Remember to set 'Enable' in the configuration page.
+* Remember to list your table in the allowed ones in configuration page.
+* The 'custom fields formatting' is very tricky: use it only if you know what you are doing!
+* The 'idtable' must be unique for each grid displayed: you can even display the same db table multiple times, but with differnet idtables.
+* Some themes may require a css tuning to display properly all the elements.
+
+= Which are the know limitations or issues? =
+* There is a column order issue with <strong>Theme Twenty Fourteen</strong> that I was unable to fix (if you can, please let me know!). Please use a different Theme.
+* Your table MUST have ONE and ONLY ONE field set as primary key, if not the first field will be use as PK.
+* The fields render and size are set to a default, possible but not easy to set them for each field
+* No decode/pull down lists available
+* No master/detail feature 
+* Must insert numbers with DOT decimal separator and NO thousand separator
+* Datetime edit check is not supported in jqGrid
+* (all these will be fixed in future releases, but until now...)
+
+= Third parts js and css =
+* jqGrid: jQuery Grid Plugin 4.4.3 – last version which support IE6 - from http://www.trirand.com/blog/jqgrid/downloads/jquery.jqGrid-4.4.3.zip
+* themes: jquery-ui-themes-1.10.4.zip - from http://jqueryui.com/
+
+= TODO =
+* set rights to modify tables on setup and check on frontend
+* set key field(s) on fronted or from DB
+* decode required fields with a scrolldown list
+* edit/delete/insert on line
+* 1 to n slave table
+* simplify formatting settings on frontend for each field of a selected table
+
+== Screenshots ==
+1. Setup 'WPF-jqGrid'
+2. Sample of 'WPF-jqGrid' front page, see live at <a href="http://faina09.it/category/wp-plugins/wpfjqgrid/">WPF-jqGrid developer's site</a>
+3. Edit popup window, see live at <a href="http://faina09.it/category/wp-plugins/wpfjqgrid/">WPF-jqGrid developer's site</a>
+
+== Changelog ==
+= 0.20 =
+* fix ie detection in jqGrid
+* tested for WP5.8.2 and PHP8.0
+= 0.19 =
+* updated deactivate and uninstall
+* tested for WP5.2.4
+= 0.18 =
+* tested for WP5.0
+= 0.17 =
+* compatible with WP4.3 and PHP7.0
+= 0.16 =
+* add sr_RS translation (thanks to Andrijana)
+= 0.15 =
+* add German translation (thanks to Tobias)
+* minor fixes and doc updates
+= 0.14 =
+* fix create table MySQL 5.6
+= 0.13 =
+* fix ob_clean
+= 0.12 =
+* WP 4.0
+= 0.11 =
+* deprecated mysql_ calls removed, use mysqli
+* wp 3.9 compatible
+= 0.10 =
+* sortby=field,asc|desc into shortcode
+* ATTENTION: renamed, need resave setup page and rename shortcode to [wpf-jqgrid]
+= 0.09 =
+* admin-ajax.php path fix (tnx to michael walker)
+= 0.08 =
+* js fix
+* reformat code
+= 0.07 =
+* minor fix (quotes, empty vars,..)
+* better log for debug
+= 0.06 =
+* any field (but only one) can be PK 
+* add log with settable level
+* add role (converted to capability) required to edit a table
+* some formatting added
+= 0.05 =
+* fast and simplified first run
+* fix key field name and usage
+* edit date format
+= 0.04 =
+* create tables from backend
+* fast startup parameters on setup page
+= 0.03 =
+* fix - better readme
+= 0.02 =
+* edit/delete/insert on popup window
+= 0.01 =
+* Initial release of plugin.
+* Please test and report any issue you find, and any feature you want. I'll try to fix the firsts and to implement the seconds!
+
+== Upgrade Notice ==
+= 0.09 =
+* admin-ajax.php path fix (tnx to michael walker)
+= 0.05 =
+* fast and simplified first run
+= 0.02 =
+* edit/delete/insert on popup window
